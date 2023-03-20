@@ -1,0 +1,6 @@
+production:
+  source: "https://s3-eu-west-1.amazonaws.com/olio-staging-images/developer/test-articles-v4.json"
+development:
+  source: "https://s3-eu-west-1.amazonaws.com/olio-staging-images/developer/test-articles-v4.json"
+test:
+  source: "https://s3-eu-west-1.amazonaws.com/olio-staging-images/developer/test-articles-v4.json"

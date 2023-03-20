@@ -1,0 +1,13 @@
+<h1>Listing All Articles</h1>
+<% if logged_in? %>
+<h2>Welcome, <%= current_user.name %></h2>
+<% end %>
+
+<table>
+  <tr>
+    <th>Likes</th>
+    <th>Title</th>
+    <th>&#9753;&hearts;&#10087;</th>
+  </tr>
+  <% if logged_in? %><%= render 'user' %><% else %><%= render 'guest' %><% end %>
+</table>

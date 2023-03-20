@@ -1,0 +1,26 @@
+<h1>Signup Form</h1>
+
+<%= render 'shared/errors', obj: @user %>
+<%= form_with model: User.new do |new_user| %>
+  <p>
+  <%= new_user.label :name, 'Username:' %>
+  <br />
+  <%= new_user.text_field :name %>
+  </p>
+
+  <p>
+  <%= new_user.label :email, 'Email:' %>
+  <br />
+  <%= new_user.text_field :email %>
+  </p>
+
+  <p>
+  <%= new_user.label :password, 'Password:' %>
+  <br />
+  <%= new_user.password_field :password %>
+  </p>
+  
+  <%= new_user.submit%>
+  <br />
+  <%= link_to "Back to Article List", articles_path %>
+<% end %>

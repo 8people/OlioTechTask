@@ -1,0 +1,7 @@
+<% @current_articles.each do |article| %>
+  <tr>
+    <td><%= article.likes %>&#9825;</td>
+    <td><%= article.title %></td>
+    <td><%= button_to 'Like', like_path(article), method: :put %></td>
+  </tr>
+<% end %>
