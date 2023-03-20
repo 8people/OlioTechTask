@@ -3,4 +3,4 @@ production:
 development:
   source: "https://s3-eu-west-1.amazonaws.com/olio-staging-images/developer/test-articles-v4.json"
 test:
-  source: "https://s3-eu-west-1.amazonaws.com/olio-staging-images/developer/test-articles-v4.json"
+  source: "https://raw.githubusercontent.com/8people/OlioTechTask/main/test/Test.json"
