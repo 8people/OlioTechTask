@@ -9,10 +9,9 @@ Rails.application.routes.draw do
 
   resources :users, except: [:new]
   get 'signup', to: 'users#new'
-  put '/user/:id/like/:article_id', to: 'users#like_article', as: 'like_article'
+  get '/user/:id/liked', to: 'users#liked', as: 'liked'
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  # like_article
 end

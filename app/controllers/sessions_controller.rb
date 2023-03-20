@@ -1,14 +1,16 @@
 # frozen_string_literal: true
 
-class SessionsController < ApplicationController::Base
+class SessionsController < ApplicationController
   def new; end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
+    identifier = params[:session][:input]&.downcase
+    user = sign_in_by(identifier)
     if user&.authenticate(params[:session][:password])
       session[:user_id] = user.id
+      session[:likes] = []
       flash[:notice] = 'Logged in successfully'
-      redirect_to user
+      redirect_to root_path
     else
       flash.now[:alert] = 'There was something wrong with your login details'
       render 'new'
@@ -23,7 +25,7 @@ class SessionsController < ApplicationController::Base
 
   private
 
-  def sign_in_by
-    User.find_by(email: params[:session][:email].downcase) || User.find_by(name: params[:session][:name])
+  def sign_in_by(identifier)
+    User.find_by(email: identifier) || User.find_by(name: identifier)
   end
 end

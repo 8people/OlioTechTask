@@ -1,11 +1,11 @@
 <% @current_articles.each do |article| %>
   <tr>
   <% if current_user.liked_articles&.include?(article.id) %>
-    <td><%= article.likes %>&hearts;</td>
+    <td class="text-align: center"><%= article.likes %>&hearts;</td>
     <td><%= article.title %></td>
     <td>Liked!</td>
   <% else %>
-    <td><%= article.likes %>&#9825;</td>
+    <td class="text-align: center"><%= article.likes %>&#9825;</td>
     <td><%= article.title %></td>
     <td><%= button_to 'Like', user_like_path(article), method: :put %></td>
   <% end %>

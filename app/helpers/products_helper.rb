@@ -3,6 +3,6 @@
 module ProductsHelper
   def self.list
     url = Rails.configuration.products_list['source']
-    HTTParty.get(url).parsed_response
+    HTTParty.get(url, format: :json).parsed_response
   end
 end

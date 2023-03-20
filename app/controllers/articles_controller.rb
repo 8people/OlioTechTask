@@ -14,6 +14,9 @@ class ArticlesController < ApplicationController
 
   def user_like
     like
+    session[:likes] << params[:id]
+    # redirect_to liked_path(params)
+    redirect_to root_path
   end
 
   private

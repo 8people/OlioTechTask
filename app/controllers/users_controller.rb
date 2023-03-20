@@ -10,17 +10,18 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = 'New sign up successfully created!'
-      redirect_to articles_path
+      redirect_to login_url
     else
       render 'new'
     end
   end
 
-  def like_article
-    liked_articles = current_user.liked_articles || []
-    liked_articles << params[:id]
-    current_user.update(liked_articles: liked_articles)
-    current_user.save
+  def liked
+    user = User.find(session[:user_id])
+    article_list = user&.liked_articles || []
+    article_list << params[:id]
+    user.update(liked_articles: article_list)
+    user.save
   end
 
   private

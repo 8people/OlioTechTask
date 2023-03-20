@@ -1,0 +1,19 @@
+<h1>Login Form</h1>
+
+<%= form_with(scope: :session, url: login_path, local: true) do |user| %>
+  <p>
+  <%= user.label :input, 'Username or Email:' %>
+  <br />
+  <%= user.text_field :input %>
+  </p>
+
+  <p>
+  <%= user.label :password, 'Password:' %>
+  <br />
+  <%= user.password_field :password %>
+  </p>
+  
+  <%= user.submit 'Log In' %>
+  <br />
+  <%= link_to "Back to Article List", articles_path %>
+<% end %>

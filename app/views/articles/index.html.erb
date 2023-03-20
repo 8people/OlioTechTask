@@ -1,13 +1,20 @@
 <h1>Listing All Articles</h1>
 <% if logged_in? %>
 <h2>Welcome, <%= current_user.name %></h2>
+<%= button_to 'Log Out', logout_path, method: :delete %>
+<% else %>
+<h2>Welcome, Guest!</h2>
+<%= button_to 'Log In', login_path, method: :new %><%= button_to 'Sign Up', signup_path, method: :get %>
+
 <% end %>
 
-<table>
-  <tr>
-    <th>Likes</th>
-    <th>Title</th>
-    <th>&#9753;&hearts;&#10087;</th>
-  </tr>
-  <% if logged_in? %><%= render 'user' %><% else %><%= render 'guest' %><% end %>
-</table>
+<p>
+  <table>
+    <tr>
+      <th>Likes</th>
+      <th>Title</th>
+      <th>&#9753;&hearts;&#10087;</th>
+    </tr>
+    <% if logged_in? %><%= render 'user' %><% else %><%= render 'guest' %><% end %>
+  </table>
+</p>
